@@ -1,6 +1,4 @@
-# main.py (in hw1-f branch)
-# Introduced bug: Calculation is wrapped, prints directly, and uses subtraction.
-# This simulates an issue introduced in the feature branch.
+
 
 def calculate_and_print(a, b):
     """Calculates a - b and prints the result directly."""
