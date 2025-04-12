@@ -1,8 +1,12 @@
-# main.py (in main branch)
-# Basic script to add two numbers and print the result directly in the main block.
+
+
+def add_numbers(a, b):
+    """Adds two numbers and returns the result."""
+    return a + b
 
 if __name__ == "__main__":
     x = 10
     y = 5
-    result = x + y
-    print(f"The result is: {result}")
+    sum_result = add_numbers(x, y)
+    # Output format remains the same for the action check
+    print(f"The result is: {sum_result}") # Output should still be 15
