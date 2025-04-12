@@ -1,0 +1,46 @@
+# .github/workflows/python-test.yml
+name: Python Script Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test: # Changed job name to 'test' for clarity
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Display Python version 
+        run: python --version
+
+      - name: List directory contents 
+        run: ls -R 
+
+      - name: Run script and verify output
+        run: |
+          echo "Running python main.py..."
+          # Execute the script and capture its standard output
+          OUTPUT=$(python main.py)
+          echo "Script output: '$OUTPUT'"
+
+          # Define the EXACT expected output string
+          EXPECTED_OUTPUT="The result is: 15"
+
+          # Compare the actual output with the expected output
+          if [ "$OUTPUT" == "$EXPECTED_OUTPUT" ]; then
+            echo "✅ Success: Output matches expected result ('$EXPECTED_OUTPUT')."
+            exit 0 # Exit with success code
+          else
+            echo "❌ Error: Output '$OUTPUT' does not match expected '$EXPECTED_OUTPUT'."
+            exit 1 # Exit with failure code, causing the Action to fail
+          fi
