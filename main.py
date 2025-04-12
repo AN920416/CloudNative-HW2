@@ -1,6 +1,4 @@
-# main.py (in hw1-p branch)
-# Refactored: Calculation is wrapped in a function.
-# The main block calls the function, receives the value, and prints it.
+
 
 def add_numbers(a, b):
     """Adds two numbers and returns the result."""
